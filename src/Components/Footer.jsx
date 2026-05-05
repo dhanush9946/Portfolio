@@ -49,16 +49,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500 mb-4 md:mb-0 text-center md:text-left">
+        <div className="border-t border-white/10 pt-8 flex justify-center">
+          <p className="text-sm text-gray-500 text-center">
             &copy; {new Date().getFullYear()} Dhanush V. All rights reserved.
           </p>
-          <p className="text-sm text-gray-500 flex items-center space-x-1">
-            <span>Built with</span>
-            <Heart size={14} className="text-red-500 mx-1" fill="currentColor" />
-            <span>using React & Tailwind CSS</span>
-          </p>
         </div>
+
       </div>
     </footer>
   );

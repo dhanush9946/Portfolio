@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formState, setFormState] = useState({
@@ -8,20 +9,33 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [status, setStatus] = useState('idle'); // idle, sending, success
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    
-    // Simulate API call
-    setTimeout(() => {
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
       setStatus('success');
       setFormState({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -83,8 +97,16 @@ const Contact = () => {
                 <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center text-green-500 mb-6">
                   <CheckCircle size={48} />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-4">Message Sent!</h3>
-                <p className="text-gray-400 text-lg">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <h3 className="text-3xl font-bold text-white mb-4">Message Sent! 🎉</h3>
+                <p className="text-gray-400 text-lg">Thanks for reaching out! I'll get back to you as soon as possible.</p>
+              </div>
+            ) : status === 'error' ? (
+              <div className="glass-card p-12 flex flex-col items-center justify-center text-center h-full animate-fade-in">
+                <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 mb-6">
+                  <AlertCircle size={48} />
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-4">Oops! Something went wrong.</h3>
+                <p className="text-gray-400 text-lg">Please try again or email me directly at <span className="text-white">dhanushpoothanganam5@gmail.com</span></p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="glass-card p-8 group">

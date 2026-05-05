@@ -27,18 +27,19 @@ const Hero = () => {
       <div className="relative w-full h-full max-w-7xl mx-auto p-8 md:p-12 z-10 flex flex-col justify-between">
         
         {/* Top Section */}
-        <div className="flex justify-between items-start mt-24 md:mt-32">
-          {/* Top Left */}
-          <div className="text-gray-400 text-sm md:text-base space-y-2 tracking-widest font-medium z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start mt-24 md:mt-32 gap-8 md:gap-0">
+          {/* Top Left: Details */}
+          <div className="text-gray-400 text-xs md:text-base space-y-2 tracking-widest font-medium z-10 text-center md:text-left order-2 md:order-1">
             <p>NAME: DHANUSH V</p>
             <p>ROLE: SOFTWARE DEVELOPER</p>
-            <p>EMAIL: <span className="text-white">dhanushpoothanganam5@gmail.com</span></p>
-            <p>PHONE: <span className="text-white">9846388075</span></p>
+            <p className="hidden md:block text-[10px] opacity-50 uppercase tracking-[0.3em] mt-4">Contact Gateway // Active</p>
+            <p className="text-white break-all md:break-normal">dhanushpoothanganam5@gmail.com</p>
+            <p className="text-white">9846388075</p>
             <p className="tracking-widest">.....</p>
           </div>
           
           {/* Top Right: Profile Image */}
-          <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-2 border-primary overflow-hidden z-20 grayscale hover:grayscale-0 transition-all duration-500 hidden md:block mt-[-2rem]">
+          <div className="w-32 h-32 md:w-56 md:h-56 rounded-full border-2 border-primary overflow-hidden z-20 grayscale hover:grayscale-0 transition-all duration-500 block mt-0 md:mt-[-2rem] order-1 md:order-2 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
             <img src="/profilePhoto.jpeg" alt="Profile" className="w-full h-full object-cover scale-125 origin-center" />
           </div>
         </div>
@@ -74,41 +75,21 @@ const Hero = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex justify-between items-end mb-8 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 gap-4 md:gap-0">
           
-          {/* Bottom Left: Contact */}
-          <div className="flex items-center gap-6 z-10">
-            <div className="text-gray-500 text-xs tracking-widest space-y-2">
-              <div className="flex items-center gap-4">
-                <span className="w-12 text-right">EMAIL</span>
-                <span className="w-8 h-[1px] bg-gray-600"></span>
-              </div>
-              <a href="mailto:dhanushpoothanganam5@gmail.com" className="text-gray-300 ml-16 hover:text-white transition-colors">
-                dhanushpoothanganam5@gmail.com
-              </a>
-            </div>
-
-            <a 
-              href="tel:9846388075" 
-              className="w-10 h-10 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:border-primary hover:text-black transition-colors cursor-pointer group"
-              title="Call Me"
-            >
-              <ArrowRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
+          {/* Contact Info */}
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 z-10 text-center md:text-left">
+            <a href="mailto:dhanushpoothanganam5@gmail.com" className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors break-all md:break-normal">
+              dhanushpoothanganam5@gmail.com
             </a>
-
-            <div className="text-gray-500 text-xs tracking-widest space-y-2">
-              <div className="flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-gray-600"></span>
-                <span>TEL</span>
-              </div>
-              <a href="tel:9846388075" className="text-gray-300 hover:text-white transition-colors">
-                9846388075
-              </a>
-            </div>
+            <span className="hidden md:block w-8 h-[1px] bg-gray-600"></span>
+            <a href="tel:9846388075" className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors">
+              9846388075
+            </a>
           </div>
 
           {/* Bottom Right: Clean */}
-          <div className="text-right flex flex-col items-end gap-2 z-10 mb-4">
+          <div className="text-right flex flex-col items-end gap-2 z-10 mb-4 hidden md:flex">
           </div>
           
         </div>

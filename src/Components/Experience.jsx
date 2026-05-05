@@ -39,7 +39,7 @@ const Experience = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl">
             <div className="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-4">Journey</div>
-            <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-8xl font-black text-white tracking-tighter leading-tight md:leading-none">
               <ScrambledText radius={40} duration={1}>EXPERIENCE</ScrambledText>
             </h2>
           </div>
@@ -75,7 +75,7 @@ const Experience = () => {
                 <div className="lg:w-3/4 w-full">
                   <div className="flex justify-between items-start mb-8">
                     <div>
-                      <h3 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
+                      <h3 className="text-2xl md:text-5xl font-black text-white mb-2 tracking-tight">
                         {exp.role}
                       </h3>
                       <div className="text-primary text-xl font-bold tracking-tight">

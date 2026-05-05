@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bot } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ onChatOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,12 +46,14 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href="#contact"
-              className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-background text-sm font-bold transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+            <button 
+              onClick={onChatOpen}
+              className="group flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#00e5ff] hover:bg-[#00e5ff]/90 text-[#0a192f] text-sm font-black transition-all hover:shadow-[0_0_20px_rgba(0,229,255,0.6)] animate-pulse-slow relative overflow-hidden"
             >
-              Let's Talk
-            </a>
+              <Bot size={18} className="group-hover:rotate-12 transition-transform" />
+              <span>Ask My AI</span>
+              <span className="text-[10px] bg-black/10 px-1.5 py-0.5 rounded-md font-black tracking-tighter">BETA</span>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -78,15 +80,22 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <div className="pt-4 flex space-x-4">
-              <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white">
-                <FaGithub size={20} />
+            <button 
+              onClick={() => { onChatOpen(); setIsMenuOpen(false); }}
+              className="w-full py-4 rounded-xl bg-[#00e5ff] text-[#0a192f] font-black flex items-center justify-center gap-2 mt-4 transition-all active:scale-95 shadow-[0_0_15px_rgba(0,229,255,0.3)]"
+            >
+              <Bot size={22} />
+              Ask My AI
+            </button>
+            <div className="pt-6 flex space-x-6 justify-center">
+              <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <FaGithub size={24} />
               </a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2]">
-                <FaLinkedin size={20} />
+              <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors">
+                <FaLinkedin size={24} />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#1DA1F2]">
-                <FaTwitter size={20} />
+              <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#1DA1F2] transition-colors">
+                <FaTwitter size={24} />
               </a>
             </div>
           </div>

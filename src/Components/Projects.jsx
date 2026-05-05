@@ -1,68 +1,93 @@
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import CardSwap, { Card } from './CardSwap';
 
 const Projects = () => {
   const projectsData = [
     {
       title: "CRM: AI-Powered Multi-Tenant SaaS",
       description: "A scalable multi-tenant CRM SaaS platform using Clean Architecture, CQRS (MediatR), and hybrid microservices. Features TenantId-based isolation, JWT refresh tokens, and AI-driven lead scoring.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1551288049-bb6c9b438a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+      ],
       tags: ["ASP.NET Core", "React", "Redis", "Docker", "Azure"],
-      liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/dhanush9946/crm-saas-system",
     },
     {
       title: "SPL: Football Management System",
-      description: "Full-stack football tournament system supporting match scheduling, team statistics, and points table calculation. Implemented CQRS via MediatR and optimized data access with Dapper.",
-      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      description: "A comprehensive SaaS-based football tournament platform featuring player auctions, match scheduling, and real-time predictions. Leverages CQRS with MediatR and Dapper for high-performance data operations.",
+      images: [
+        "/assets/spl/spl1.png",
+        "/assets/spl/spl2.png",
+        "/assets/spl/spl3.png",
+        "/assets/spl/spl4.png"
+      ],
       tags: ["ASP.NET Core", "React", "Dapper", "MediatR", "SQL Server"],
-      liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/dhanush9946/SPL-Server",
     },
     {
       title: "ZYRA: E-Commerce Web App",
       description: "Production-ready e-commerce platform with product management, shopping cart, and JWT-authenticated APIs with RBAC. Deployed on AWS EC2 with RDS connectivity and CI/CD pipelines.",
-      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+      ],
       tags: ["ASP.NET Core", "React", "EF Core", "AWS EC2", "GitHub Actions"],
-      liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/dhanush9946/ECommerce-Backend",
     }
   ];
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Featured <span className="text-gradient">Projects</span></h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tighter">Featured <span className="text-gradient">Projects</span></h2>
+          <div className="w-24 h-1.5 bg-blue-500 mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             Here are some of my recent projects. Each one was carefully crafted to solve specific problems.
           </p>
         </div>
 
-        <div className="space-y-20">
+        <div className="space-y-32">
           {projectsData.map((project, index) => (
             <div 
               key={index} 
-              className={`flex flex-col md:flex-row gap-10 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+              className={`flex flex-col md:flex-row gap-16 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
             >
-              {/* Project Image */}
-              <div className="w-full md:w-1/2 group relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden aspect-video">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition duration-700"
-                  />
-                  <div className="absolute inset-0 bg-background/40 group-hover:bg-transparent transition duration-500"></div>
+              {/* Project Images with CardSwap */}
+              <div className="w-full md:w-1/2 flex justify-center items-center py-10">
+                <div className="relative w-[300px] h-[200px] md:w-[480px] md:h-[300px]">
+                  <CardSwap
+                    width="100%"
+                    height="100%"
+                    cardDistance={15}
+                    verticalDistance={15}
+                    delay={4500}
+                    pauseOnHover={true}
+                  >
+                    {project.images.map((img, imgIdx) => (
+                      <Card key={imgIdx} customClass="overflow-hidden shadow-2xl border-white/10">
+                        <img 
+                          src={img} 
+                          alt={`${project.title} screenshot ${imgIdx + 1}`} 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000&auto=format&fit=crop";
+                          }}
+                        />
+                      </Card>
+                    ))}
+                  </CardSwap>
                 </div>
               </div>
 
               {/* Project Details */}
               <div className="w-full md:w-1/2">
-                <h3 className="text-3xl font-bold text-white mb-4">{project.title}</h3>
-                <div className="glass p-6 rounded-xl mb-6 shadow-xl relative z-10">
+                <h3 className="text-2xl md:text-4xl font-black text-white mb-4 tracking-tight">{project.title}</h3>
+                <div className="glass p-6 rounded-xl mb-6 shadow-xl relative z-10 border border-white/10">
                   <p className="text-gray-300 leading-relaxed">
                     {project.description}
                   </p>
@@ -72,7 +97,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <li 
                       key={tagIndex}
-                      className="text-sm font-medium text-secondary bg-secondary/10 px-4 py-1.5 rounded-full"
+                      className="text-sm font-medium text-secondary bg-secondary/10 px-4 py-1.5 rounded-full border border-secondary/20"
                     >
                       {tag}
                     </li>
@@ -84,20 +109,22 @@ const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center space-x-2 text-white hover:text-primary transition min-w-[120px]"
+                    className="flex items-center space-x-2 text-white hover:text-primary transition min-w-[120px] bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:border-primary/50"
                   >
                     <FaGithub size={20} />
                     <span className="font-semibold">Code</span>
                   </a>
-                  <a 
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center space-x-2 text-white hover:text-secondary transition"
-                  >
-                    <ExternalLink size={20} />
-                    <span className="font-semibold">Live Preview</span>
-                  </a>
+                  {project.liveLink && (
+                    <a 
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center space-x-2 text-white hover:text-secondary transition bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:border-secondary/50"
+                    >
+                      <ExternalLink size={20} />
+                      <span className="font-semibold">Live Preview</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
