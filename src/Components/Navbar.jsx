@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Bot } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Navbar = ({ onChatOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,8 +94,8 @@ const Navbar = ({ onChatOpen }) => {
               <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors">
                 <FaLinkedin size={24} />
               </a>
-              <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#1DA1F2] transition-colors">
-                <FaTwitter size={24} />
+              <a href="https://www.instagram.com/_dhanush___v/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#E1306C] transition-colors">
+                <FaInstagram size={24} />
               </a>
             </div>
           </div>

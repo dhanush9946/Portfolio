@@ -7,7 +7,7 @@ const Experience = () => {
       id: "01",
       role: "Software Developer",
       company: "Kodlar Innovations",
-      period: "2025 – Present",
+      period: "2026 – Present",
       location: "Kozhikode, Kerala",
       description: [
         "Contributing to the live SPL football management system, building RESTful APIs using ASP.NET Core with Clean Architecture and CQRS.",

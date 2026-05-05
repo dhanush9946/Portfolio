@@ -1,5 +1,5 @@
 import { Heart } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -40,8 +40,8 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-[#1DA1F2] transition-colors flex items-center space-x-2">
-                    <FaTwitter size={16} /> <span>Twitter</span>
+                  <a href="https://www.instagram.com/_dhanush___v/" target="_blank" rel="noreferrer" className="hover:text-[#E1306C] transition-colors flex items-center space-x-2">
+                    <FaInstagram size={16} /> <span>Instagram</span>
                   </a>
                 </li>
               </ul>

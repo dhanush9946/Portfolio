@@ -18,12 +18,7 @@ const Projects = () => {
     {
       title: "SPL: Football Management System",
       description: "A comprehensive SaaS-based football tournament platform featuring player auctions, match scheduling, and real-time predictions. Leverages CQRS with MediatR and Dapper for high-performance data operations.",
-      images: [
-        "/assets/spl/spl1.png",
-        "/assets/spl/spl2.png",
-        "/assets/spl/spl3.png",
-        "/assets/spl/spl4.png"
-      ],
+      images: [],
       tags: ["ASP.NET Core", "React", "Dapper", "MediatR", "SQL Server"],
       githubLink: "https://github.com/dhanush9946/SPL-Server",
     },
