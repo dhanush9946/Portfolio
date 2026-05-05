@@ -3,6 +3,14 @@ import { FaGithub } from 'react-icons/fa';
 import CardSwap, { Card } from './CardSwap';
 
 const Projects = () => {
+  const optimizeCloudinary = (url) => {
+    if (url.includes('cloudinary.com')) {
+      return url.replace('/upload/', '/upload/f_auto,q_auto/');
+    }
+    return url;
+  };
+
+
   const projectsData = [
     {
       title: "CRM: AI-Powered Multi-Tenant SaaS",
@@ -18,7 +26,12 @@ const Projects = () => {
     {
       title: "SPL: Football Management System",
       description: "A comprehensive SaaS-based football tournament platform featuring player auctions, match scheduling, and real-time predictions. Leverages CQRS with MediatR and Dapper for high-performance data operations.",
-      images: [],
+      images: [
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777995588/prediction_rjg3by.jpg",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777995587/pointtable_xflcor.png",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777995587/fixture_q3bpjh.jpg",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777995587/match_deuwoy.jpg"
+      ],
       tags: ["ASP.NET Core", "React", "Dapper", "MediatR", "SQL Server"],
       githubLink: "https://github.com/dhanush9946/SPL-Server",
     },
@@ -26,9 +39,10 @@ const Projects = () => {
       title: "ZYRA: E-Commerce Web App",
       description: "Production-ready e-commerce platform with product management, shopping cart, and JWT-authenticated APIs with RBAC. Deployed on AWS EC2 with RDS connectivity and CI/CD pipelines.",
       images: [
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777996439/Screenshot_2026-03-02_163131_lcvjtl.png",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777996436/Screenshot_2026-02-02_191217_dslvmh.png",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777996436/Screenshot_2026-03-02_163035_gdbr50.png",
+        "https://res.cloudinary.com/dq65yuqob/image/upload/v1777996436/Screenshot_2026-02-02_191138_sh1q9g.png"
       ],
       tags: ["ASP.NET Core", "React", "EF Core", "AWS EC2", "GitHub Actions"],
       githubLink: "https://github.com/dhanush9946/ECommerce-Backend",
@@ -66,7 +80,7 @@ const Projects = () => {
                     {project.images.map((img, imgIdx) => (
                       <Card key={imgIdx} customClass="overflow-hidden shadow-2xl border-white/10">
                         <img 
-                          src={img} 
+                          src={optimizeCloudinary(img)} 
                           alt={`${project.title} screenshot ${imgIdx + 1}`} 
                           className="w-full h-full object-cover"
                           onError={(e) => {
