@@ -88,7 +88,7 @@ const Navbar = ({ onChatOpen }) => {
               Ask My AI
             </button>
             <div className="pt-6 flex space-x-6 justify-center">
-              <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/dhanush9946" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaGithub size={24} />
               </a>
               <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors">

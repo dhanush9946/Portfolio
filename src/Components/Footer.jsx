@@ -30,7 +30,7 @@ const Footer = () => {
               <h4 className="text-white font-semibold mb-4">Socials</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center space-x-2">
+                  <a href="https://github.com/dhanush9946" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center space-x-2">
                     <FaGithub size={16} /> <span>GitHub</span>
                   </a>
                 </li>
